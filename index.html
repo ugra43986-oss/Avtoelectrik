@@ -3,974 +3,499 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Автосервис в п. Угра — автоэлектрик, диагностика, подъемник</title>
-  <meta name="description" content="Автосервис в п. Угра, ул. Ленина. Автоэлектрик, компьютерная диагностика, подъемник, ремонт ходовой, техническое обслуживание и осмотр авто перед покупкой. Телефон: +7 952 994-53-94" />
-  <meta name="theme-color" content="#0b1220" />
-  <meta property="og:title" content="Автосервис в п. Угра" />
-  <meta property="og:description" content="Автоэлектрик, диагностика, подъемник, обслуживание и ремонт автомобиля." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ru_RU" />
+  <title>Автосервис в п. Угра — автоэлектрик, диагностика, ремонт</title>
+  <meta name="description" content="Автосервис в п. Угра. Автоэлектрик, компьютерная диагностика, ремонт ходовой, замена масла, обслуживание автомобилей. Телефон: +7 952 994-53-94" />
   <style>
     :root {
-      --bg: #07101d;
-      --bg-2: #0b1528;
-      --bg-3: #111d35;
-      --panel: rgba(255,255,255,0.06);
-      --panel-strong: rgba(255,255,255,0.1);
+      --bg: #0d1522;
+      --bg-2: #121f33;
+      --card: rgba(255,255,255,0.06);
       --line: rgba(255,255,255,0.12);
-      --line-strong: rgba(255,255,255,0.2);
-      --text: #f7f9ff;
-      --muted: #aab6cf;
-      --blue: #69aaff;
-      --blue-2: #96d4ff;
-      --orange: #ff8a2d;
-      --orange-2: #ffb15f;
-      --green: #8ff8c7;
-      --shadow: 0 30px 80px rgba(0,0,0,0.42);
-      --radius-xl: 34px;
-      --radius-lg: 26px;
-      --radius-md: 18px;
-      --max: 1260px;
+      --text: #f4f7fb;
+      --muted: #b7c3d4;
+      --accent: #ff8c1a;
+      --accent-2: #1d73ff;
+      --ok: #22c55e;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      line-height: 1.55;
-      overflow-x: hidden;
       background:
-        radial-gradient(circle at 0% 0%, rgba(105,170,255,0.18), transparent 24%),
-        radial-gradient(circle at 100% 0%, rgba(255,138,45,0.16), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(105,170,255,0.12), transparent 28%),
-        linear-gradient(180deg, #060d18 0%, #0b1528 48%, #07101d 100%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.46), transparent 78%);
+        radial-gradient(circle at top right, rgba(29,115,255,0.14), transparent 25%),
+        radial-gradient(circle at top left, rgba(255,140,26,0.10), transparent 25%),
+        linear-gradient(180deg, #09101b 0%, #0d1522 100%);
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
     .container {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(100% - 32px, var(--max));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 16, 29, 0.72);
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 13, 22, 0.75);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .nav {
-      min-height: 84px;
+    .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
+      padding: 14px 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 0;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 20px;
     }
 
-    .brand-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(105,170,255,0.22), rgba(255,138,45,0.18));
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
-      font-weight: 900;
-      letter-spacing: 0.05em;
+      box-shadow: var(--shadow);
+      font-size: 20px;
     }
 
-    .brand-title {
-      font-size: 1.04rem;
-      font-weight: 800;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand-subtitle {
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .nav-links {
+    .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links .link {
-      padding: 10px 14px;
-      border-radius: 999px;
+      gap: 18px;
       color: var(--muted);
-      transition: 0.2s ease;
+      font-size: 15px;
     }
 
-    .nav-links .link:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.05);
-    }
+    .nav a:hover { color: #fff; }
 
     .btn {
-      min-height: 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 0 20px;
-      border-radius: 999px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
       border: 1px solid transparent;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      cursor: pointer;
     }
 
     .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      color: #0a1220;
-      background: linear-gradient(135deg, var(--orange), var(--orange-2) 48%, var(--blue-2));
-      box-shadow: 0 18px 42px rgba(255,138,45,0.24);
+      background: linear-gradient(135deg, var(--accent), #ff6a00);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(255,140,26,0.28);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--line-strong);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+      color: #fff;
     }
 
     .hero {
-      padding: 40px 0 28px;
       position: relative;
+      overflow: hidden;
+      padding: 72px 0 38px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 22px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
       align-items: stretch;
     }
 
-    .glass {
-      position: relative;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-      border: 1px solid rgba(255,255,255,0.1);
+    .hero-card {
+      padding: 42px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
-    .glass::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 24%);
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
     }
 
-    .hero-main {
-      padding: 40px;
-      min-height: 100%;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      margin-bottom: 18px;
-      color: #dfe8ff;
-      font-size: 0.95rem;
-    }
-
-    .eyebrow .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 6px rgba(143,248,199,0.12);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 5vw, 5.4rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      max-width: 780px;
-    }
-
-    .lead {
-      margin: 18px 0 0;
-      max-width: 740px;
+    .hero p {
+      margin: 0 0 26px;
       color: var(--muted);
-      font-size: 1.08rem;
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 720px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-bottom: 26px;
     }
 
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .pill {
-      padding: 11px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #d8e4ff;
-      font-size: 0.93rem;
-    }
-
-    .stats {
+    .hero-points {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 30px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
     }
 
-    .stat {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.1);
+    .point {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .stat strong {
+    .point strong {
       display: block;
-      font-size: 1.32rem;
+      font-size: 18px;
       margin-bottom: 6px;
     }
 
-    .stat span {
+    .point span {
       color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-side {
-      padding: 22px;
-      display: grid;
-      gap: 16px;
-      align-content: start;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .hero-photo {
-      position: relative;
-      min-height: 280px;
+      min-height: 520px;
       border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
       background:
-        linear-gradient(135deg, rgba(7,16,29,0.2), rgba(7,16,29,0.55)),
-        radial-gradient(circle at top right, rgba(255,138,45,0.25), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(105,170,255,0.3), transparent 40%),
-        url('images/hero-service.jpg') center/cover no-repeat;
+        linear-gradient(180deg, rgba(9,15,24,0.20), rgba(9,15,24,0.55)),
+        url('hero-service.jpg') center center / cover no-repeat;
+      position: relative;
     }
 
-    .hero-photo-content {
+    .hero-photo::after {
+      content: "";
       position: absolute;
       inset: auto 18px 18px 18px;
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(7,16,29,0.55);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .hero-photo-content strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 5px;
-    }
-
-    .hero-photo-content span {
-      color: #d8e4ff;
-      font-size: 0.94rem;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .info-card {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .info-card.full { grid-column: 1 / -1; }
-
-    .label {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .value {
-      font-size: 1.14rem;
-      font-weight: 800;
+      height: 84px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255,140,26,0.86), rgba(29,115,255,0.86));
+      filter: blur(26px);
+      opacity: 0.45;
     }
 
     section {
-      padding: 30px 0;
+      padding: 28px 0;
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
+    .section-subtitle {
+      margin: 0 0 24px;
       color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
       max-width: 760px;
     }
 
-    .cards-3,
-    .price-grid,
-    .gallery-grid,
-    .process,
-    .contacts,
-    .faq-grid {
+    .cards-3 {
       display: grid;
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
     }
 
-    .cards-3,
-    .price-grid,
-    .process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
 
-    .card,
-    .price-card,
-    .step,
-    .contact-box,
-    .faq-item,
-    .gallery-card,
-    .trust-panel,
-    .review-panel,
-    .cta {
-      position: relative;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-      border: 1px solid rgba(255,255,255,0.11);
+    .card {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
-    .card,
-    .price-card,
-    .step,
-    .contact-box,
-    .faq-item,
-    .trust-panel,
-    .review-panel { padding: 22px; }
-
-    .card::after,
-    .price-card::after {
-      content: "";
-      position: absolute;
-      right: -28px;
-      bottom: -34px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,138,45,0.18), transparent 70%);
-      pointer-events: none;
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 16px;
-      font-size: 1.2rem;
-    }
-
-    .card h3,
-    .price-card h3,
-    .step h3,
-    .contact-box h3,
-    .faq-item h3,
-    .trust-panel h3,
-    .review-panel h3 {
+    .card h3 {
       margin: 0 0 10px;
-      font-size: 1.16rem;
+      font-size: 22px;
     }
 
-    .card p,
-    .card li,
-    .price-card p,
-    .price-card li,
-    .step p,
-    .contact-box p,
-    .contact-box li,
-    .faq-item p,
-    .trust-panel p,
-    .review-text,
-    .gallery-note {
+    .card p {
+      margin: 0;
       color: var(--muted);
-    }
-
-    .card ul,
-    .contact-box ul,
-    .price-card ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-    }
-
-    .strip {
-      margin-top: 18px;
-      padding: 18px 22px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255,138,45,0.12), rgba(105,170,255,0.12));
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      line-height: 1.65;
     }
 
     .price-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .price-top {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 12px;
+      position: relative;
+      overflow: hidden;
     }
 
     .price {
-      font-size: 1.8rem;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: #ffffff;
+      margin: 14px 0 12px;
+      font-size: 34px;
+      font-weight: 800;
+      color: #fff;
     }
 
-    .badge {
-      padding: 8px 12px;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: rgba(255,138,45,0.12);
-      border: 1px solid rgba(255,138,45,0.24);
-      color: #ffd4ac;
-      font-size: 0.82rem;
-      white-space: nowrap;
+      background: rgba(34,197,94,0.12);
+      color: #baf2ca;
+      font-size: 13px;
+      border: 1px solid rgba(34,197,94,0.22);
+      margin-bottom: 12px;
     }
 
-    .price-note {
-      padding: 12px 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.92rem;
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 15px;
     }
 
-    .gallery-grid {
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      grid-auto-rows: 240px;
-    }
-
-    .gallery-card {
-      background-color: var(--bg-3);
-      background-size: cover;
-      background-position: center;
-      min-height: 100%;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .gallery-card.large { grid-row: span 2; }
-
-    .gallery-card.one {
-      background-image:
-        linear-gradient(135deg, rgba(7,16,29,0.2), rgba(7,16,29,0.55)),
-        radial-gradient(circle at top right, rgba(255,138,45,0.2), transparent 34%),
-        url('images/gallery-1.jpg');
-    }
-
-    .gallery-card.two {
-      background-image:
-        linear-gradient(135deg, rgba(7,16,29,0.25), rgba(7,16,29,0.58)),
-        radial-gradient(circle at top left, rgba(105,170,255,0.22), transparent 34%),
-        url('images/gallery-2.jpg');
-    }
-
-    .gallery-card.three {
-      background-image:
-        linear-gradient(135deg, rgba(7,16,29,0.25), rgba(7,16,29,0.58)),
-        radial-gradient(circle at bottom right, rgba(255,138,45,0.22), transparent 34%),
-        url('images/gallery-3.jpg');
-    }
-
-    .gallery-card.four {
-      background-image:
-        linear-gradient(135deg, rgba(7,16,29,0.25), rgba(7,16,29,0.58)),
-        radial-gradient(circle at bottom left, rgba(105,170,255,0.22), transparent 34%),
-        url('images/gallery-4.jpg');
-    }
-
-    .gallery-content {
-      position: absolute;
-      inset: auto 16px 16px 16px;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(7,16,29,0.52);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-    }
-
-    .gallery-content strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 1.02rem;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 16px;
-    }
-
-    .check-list,
-    .review-list,
-    .contact-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .check-item,
-    .review-card,
-    .contact-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .check-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .check {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      flex: 0 0 24px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(255,138,45,0.22), rgba(105,170,255,0.18));
-      border: 1px solid rgba(255,255,255,0.12);
-      font-weight: 900;
-      font-size: 0.84rem;
-      color: white;
-    }
-
-    .review-text {
-      margin: 0 0 10px;
-    }
-
-    .review-author {
-      color: #dce7ff;
-      font-size: 0.94rem;
+    .list div::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 10px;
       font-weight: 700;
     }
 
-    .process .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 15px;
+    .about-grid {
       display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(255,138,45,0.22), rgba(105,170,255,0.18));
-      border: 1px solid rgba(255,255,255,0.12);
-      font-weight: 900;
-      margin-bottom: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .faq-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
     .cta {
-      padding: 28px;
+      margin: 24px 0 10px;
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,140,26,0.12), rgba(29,115,255,0.12));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
-      background:
-        radial-gradient(circle at right top, rgba(255,138,45,0.12), transparent 30%),
-        radial-gradient(circle at left bottom, rgba(105,170,255,0.18), transparent 34%),
-        linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
     }
 
     .cta h3 {
       margin: 0 0 8px;
-      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      font-size: 28px;
     }
 
     .cta p {
       margin: 0;
       color: var(--muted);
-      max-width: 700px;
+      line-height: 1.6;
     }
 
-    .contacts { grid-template-columns: 1fr 1fr; }
-
-    .contact-item .label {
+    footer {
+      padding: 30px 0 46px;
       color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 5px;
+      font-size: 14px;
     }
 
-    .contact-item .value {
-      font-size: 1.06rem;
-      font-weight: 800;
-    }
-
-    .contact-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .footer {
-      padding: 34px 0 48px;
-      color: var(--muted);
-    }
-
-    .footer-box {
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .note {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-
-    .floating-call {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 90;
-      min-height: 56px;
-      padding: 0 18px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: #0a1220;
-      background: linear-gradient(135deg, var(--orange), var(--orange-2) 48%, var(--blue-2));
-      box-shadow: 0 18px 40px rgba(255,138,45,0.26);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1080px) {
+    @media (max-width: 1100px) {
       .hero-grid,
-      .cards-3,
-      .price-grid,
-      .gallery-grid,
-      .trust-grid,
-      .process,
-      .contacts,
-      .faq-grid {
+      .contact-grid,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
-      .gallery-grid { grid-auto-rows: 220px; }
-      .gallery-card.large { grid-row: span 1; }
+      .cards-4 {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .hero-photo {
+        min-height: 380px;
+      }
     }
 
     @media (max-width: 760px) {
-      .nav { min-height: 74px; }
-      .nav-links .link { display: none; }
-      .hero { padding-top: 24px; }
-      .hero-main,
-      .hero-side,
-      .card,
-      .price-card,
-      .step,
-      .contact-box,
-      .faq-item,
-      .trust-panel,
-      .review-panel,
-      .cta { padding: 22px; }
-      .mini-grid,
-      .stats { grid-template-columns: 1fr; }
-      .hero-actions,
-      .contact-actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .floating-call { left: 16px; right: 16px; bottom: 16px; }
+      .nav {
+        display: none;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .hero-points,
+      .cards-3,
+      .cards-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .cta {
+        padding: 22px;
+      }
+
+      .cta h3 {
+        font-size: 24px;
+      }
     }
   </style>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "Автосервис в п. Угра",
-      "telephone": "+7 952 994-53-94",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Ленина",
-        "addressLocality": "Угра",
-        "addressCountry": "RU"
-      },
-      "areaServed": "Угра",
-      "description": "Автоэлектрик, диагностика, подъемник, обслуживание и ремонт автомобиля."
-    }
-  </script>
 </head>
 <body>
+
   <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <div class="brand-mark">AU</div>
-        <div>
-          <div class="brand-title">Автосервис в п. Угра</div>
-          <div class="brand-subtitle">Автоэлектрик • диагностика • подъемник</div>
-        </div>
+    <div class="container topbar-inner">
+      <a href="#top" class="brand">
+        <span class="brand-badge">⚡</span>
+        <span>Автосервис в п. Угра</span>
       </a>
 
-      <nav class="nav-links">
-        <a class="link" href="#services">Услуги</a>
-        <a class="link" href="#prices">Цены</a>
-        <a class="link" href="#gallery">Фото</a>
-        <a class="link" href="#process">Как работаем</a>
-        <a class="link" href="#contacts">Контакты</a>
-        <a class="btn btn-primary" href="tel:+79529945394">+7 952 994-53-94</a>
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
       </nav>
+
+      <a class="btn btn-primary" href="tel:+79529945394">Позвонить</a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="glass hero-main reveal">
-          <div class="eyebrow"><span class="dot"></span> Готовая коммерческая страница под GitHub Pages</div>
-          <h1>Автосервис в п. Угра — диагностика, автоэлектрик и подъемник</h1>
-          <p class="lead">
-            Понятный сервис для тех, кому нужно быстро найти неисправность, проверить автомобиль,
-            сделать работы на подъемнике или обслужить машину без лишней путаницы.
-            Упор на диагностику, электрику, ходовую и адекватное объяснение по делу.
+        <div class="hero-card">
+          <h1>Автоэлектрик и автосервис в п. Угра</h1>
+          <p>
+            Диагностика, автоэлектрика, ремонт ходовой, обслуживание и устранение неисправностей.
+            Работаем аккуратно, понятно объясняем причину поломки и предлагаем практичное решение.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+79529945394">Позвонить сейчас</a>
+            <a class="btn btn-primary" href="tel:+79529945394">📞 +7 952 994-53-94</a>
             <a class="btn btn-secondary" href="#prices">Посмотреть цены</a>
           </div>
 
-          <div class="hero-pills">
-            <span class="pill">Компьютерная диагностика</span>
-            <span class="pill">Автоэлектрик</span>
-            <span class="pill">Работы на подъемнике</span>
-            <span class="pill">ТО и ходовая</span>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>Проверка по делу</strong>
-              <span>Сначала осмотр и причина неисправности, потом ремонт.</span>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Компьютерная диагностика</strong>
+              <span>Чтение ошибок, поиск неисправностей, проверка электронных систем.</span>
             </div>
-            <div class="stat">
-              <strong>Подъемник на месте</strong>
-              <span>Можно сразу смотреть подвеску, тормоза, течи и низ автомобиля.</span>
+            <div class="point">
+              <strong>Автоэлектрика</strong>
+              <span>Стартер, генератор, проводка, освещение, предохранители, датчики.</span>
             </div>
-            <div class="stat">
-              <strong>Понятный подход</strong>
-              <span>Объясняем, что критично сейчас, а что можно отложить.</span>
+            <div class="point">
+              <strong>Обслуживание и ремонт</strong>
+              <span>Замена масла, фильтров, мелкий ремонт, подвеска, подготовка к эксплуатации.</span>
             </div>
           </div>
         </div>
 
-        <aside class="glass hero-side reveal">
-          <div class="hero-photo">
-            <div class="hero-photo-content">
-              <strong>Реальное фото сервиса</strong>
-              <span>Положи сюда фото бокса, подъемника или автомобиля в файл <b>images/hero-service.jpg</b>.</span>
-            </div>
-          </div>
-
-          <div class="mini-grid">
-            <div class="info-card">
-              <div class="label">Телефон</div>
-              <div class="value"><a href="tel:+79529945394">+7 952 994-53-94</a></div>
-            </div>
-            <div class="info-card">
-              <div class="label">Запись</div>
-              <div class="value">По звонку</div>
-            </div>
-            <div class="info-card full">
-              <div class="label">Адрес</div>
-              <div class="value">п. Угра, ул. Ленина</div>
-              <div class="note">Добавь номер дома в тексте, если нужен точный маршрут.</div>
-            </div>
-            <div class="info-card full">
-              <div class="label">Направления</div>
-              <div class="value">Автоэлектрик • диагностика • подъемник • осмотр • ремонт</div>
-            </div>
-          </div>
-        </aside>
+        <div class="hero-photo" aria-label="Фото автосервиса"></div>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Основные услуги</h2>
-            <p>Сильный коммерческий блок для первого касания. Тексты короткие, понятные и сразу показывают специализацию.</p>
-          </div>
-        </div>
+        <h2 class="section-title">Основные услуги</h2>
+        <p class="section-subtitle">
+          Работаем с типовыми и сложными неисправностями. Помогаем понять, в чём причина проблемы и что действительно нужно делать, без лишних замен.
+        </p>
 
         <div class="cards-3">
-          <article class="card reveal">
-            <div class="icon">⚡</div>
-            <h3>Автоэлектрик</h3>
-            <p>Поиск и устранение проблем с электрикой, запуском, зарядкой, датчиками, проводкой и контактами.</p>
-            <ul>
-              <li>Проблемы запуска</li>
-              <li>Проверка генератора и АКБ</li>
-              <li>Разъемы, контакты, проводка</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="icon">🖥️</div>
+          <article class="card">
             <h3>Компьютерная диагностика</h3>
-            <p>Считывание ошибок, первичный анализ систем и понимание, куда копать дальше.</p>
-            <ul>
-              <li>Проверка блоков</li>
-              <li>Сброс ошибок после ремонта</li>
-              <li>Поиск направления неисправности</li>
-            </ul>
+            <p>Подключение диагностического оборудования, чтение и расшифровка ошибок, первичная оценка состояния автомобиля.</p>
           </article>
 
-          <article class="card reveal">
-            <div class="icon">🔧</div>
-            <h3>Работы на подъемнике</h3>
-            <p>Осмотр снизу и ремонт узлов, которые без подъемника нормально проверить сложно.</p>
-            <ul>
-              <li>Подвеска и рулевая часть</li>
-              <li>Тормозная система</li>
-              <li>Течи и общее состояние снизу</li>
-            </ul>
+          <article class="card">
+            <h3>Автоэлектрика</h3>
+            <p>Поиск утечки тока, восстановление проводки, ремонт цепей питания, проверка генератора, стартера, датчиков и освещения.</p>
           </article>
 
-          <article class="card reveal">
-            <div class="icon">🛢️</div>
+          <article class="card">
             <h3>Техническое обслуживание</h3>
-            <p>Плановые работы для спокойной эксплуатации автомобиля без лишних сюрпризов.</p>
-            <ul>
-              <li>Замена масла и фильтров</li>
-              <li>Проверка жидкостей</li>
-              <li>Контроль расходников</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="icon">🚗</div>
-            <h3>Ремонт ходовой</h3>
-            <p>Диагностика стуков, люфтов, вибраций и замена изношенных деталей подвески.</p>
-            <ul>
-              <li>Стойки, втулки, шаровые</li>
-              <li>Сайлентблоки и крепления</li>
-              <li>Осмотр перед дальней дорогой</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="icon">🔍</div>
-            <h3>Осмотр перед покупкой</h3>
-            <p>Проверка автомобиля перед сделкой, чтобы заранее понимать риски и вложения.</p>
-            <ul>
-              <li>Диагностика ошибок</li>
-              <li>Осмотр на подъемнике</li>
-              <li>Понимание сильных и слабых мест</li>
-            </ul>
+            <p>Замена масла и фильтров, базовые регламентные работы, осмотр узлов и расходников перед дальней поездкой.</p>
           </article>
         </div>
       </div>
@@ -978,296 +503,142 @@
 
     <section id="prices">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Цены</h2>
-            <p>Блок готов под коммерческое использование. Значения ниже — стартовые шаблонные цены, их можно быстро заменить на свои фактические.</p>
-          </div>
-        </div>
+        <h2 class="section-title">Цены</h2>
+        <p class="section-subtitle">
+          Ниже примерные стартовые цены. Точная стоимость зависит от марки автомобиля, сложности доступа и объёма работ.
+        </p>
 
-        <div class="price-grid">
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Компьютерная диагностика</h3>
-              <span class="badge">Популярно</span>
-            </div>
+        <div class="cards-4">
+          <article class="card price-card">
+            <div class="tag">Популярно</div>
+            <h3>Компьютерная диагностика</h3>
             <div class="price">от 1 000 ₽</div>
-            <p>Первичное чтение ошибок и базовая проверка систем автомобиля.</p>
-            <div class="price-note">Подходит, когда нужно быстро понять общее направление неисправности.</div>
+            <p>Проверка электронных систем, считывание и расшифровка ошибок.</p>
+            <div class="list">
+              <div>Сброс ошибок по согласованию</div>
+              <div>Первичное заключение</div>
+            </div>
           </article>
 
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Автоэлектрик</h3>
-              <span class="badge">Поиск причины</span>
-            </div>
+          <article class="card price-card">
+            <div class="tag">Частая услуга</div>
+            <h3>Автоэлектрик</h3>
             <div class="price">от 1 500 ₽</div>
-            <p>Диагностика проблем запуска, зарядки, датчиков, проводки и контактов.</p>
-            <div class="price-note">Итог зависит от сложности поиска и конкретной неисправности.</div>
+            <p>Поиск неисправности по электрике, проверка цепей, датчиков и оборудования.</p>
+            <div class="list">
+              <div>Проверка проводки</div>
+              <div>Осмотр предохранителей и реле</div>
+            </div>
           </article>
 
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Осмотр на подъемнике</h3>
-              <span class="badge">Быстро</span>
-            </div>
+          <article class="card price-card">
+            <div class="tag">Обслуживание</div>
+            <h3>Замена масла</h3>
             <div class="price">от 800 ₽</div>
-            <p>Осмотр подвески, тормозов, течей и нижней части автомобиля.</p>
-            <div class="price-note">Удобно перед ремонтом, поездкой или покупкой автомобиля.</div>
-          </article>
-
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Замена масла и фильтров</h3>
-              <span class="badge">ТО</span>
+            <p>Базовая замена моторного масла и фильтра.</p>
+            <div class="list">
+              <div>Проверка уровня</div>
+              <div>Контроль на течи</div>
             </div>
-            <div class="price">от 1 200 ₽</div>
-            <p>Базовое техническое обслуживание с заменой расходников.</p>
-            <div class="price-note">Стоимость зависит от марки автомобиля и доступа к узлам.</div>
           </article>
 
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Осмотр перед покупкой</h3>
-              <span class="badge">Надежно</span>
+          <article class="card price-card">
+            <div class="tag">По записи</div>
+            <h3>Осмотр ходовой</h3>
+            <div class="price">от 800 ₽</div>
+            <p>Проверка основных элементов подвески и выявление люфтов.</p>
+            <div class="list">
+              <div>Первичная оценка</div>
+              <div>Рекомендации по ремонту</div>
             </div>
-            <div class="price">от 2 500 ₽</div>
-            <p>Проверка машины перед сделкой с диагностикой и осмотром снизу.</p>
-            <div class="price-note">Помогает понять реальные вложения до покупки автомобиля.</div>
           </article>
-
-          <article class="price-card reveal">
-            <div class="price-top">
-              <h3>Ремонт ходовой</h3>
-              <span class="badge">Индивидуально</span>
-            </div>
-            <div class="price">по договоренности</div>
-            <p>Стоимость зависит от конкретных деталей, объема работ и состояния автомобиля.</p>
-            <div class="price-note">Точную цену удобно назвать после осмотра или диагностики.</div>
-          </article>
-        </div>
-
-        <div class="strip reveal">
-          <div>Важно: шаблонные цены лучше сразу заменить на свои реальные. Блок уже подготовлен визуально и технически.</div>
-          <a class="btn btn-primary" href="tel:+79529945394">Уточнить стоимость по телефону</a>
         </div>
       </div>
     </section>
 
-    <section id="gallery">
+    <section id="about">
       <div class="container">
-        <div class="section-head reveal">
+        <h2 class="section-title">Почему обращаются к нам</h2>
+        <p class="section-subtitle">
+          Ставка на понятный подход, практический ремонт и нормальное объяснение клиенту без лишней сложности.
+        </p>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Понятная диагностика</h3>
+            <p>Объясняем, в чём причина неисправности, что критично, а что может подождать. Без навязывания лишних работ.</p>
+          </article>
+
+          <article class="card">
+            <h3>Практичный подход</h3>
+            <p>Сначала проверка и подтверждение причины, потом решение. Это снижает риск лишних расходов и повторных обращений.</p>
+          </article>
+
+          <article class="card">
+            <h3>Удобно для местных клиентов</h3>
+            <p>Автосервис в п. Угра — можно быстро записаться, задать вопрос по телефону и получить понятную консультацию.</p>
+          </article>
+
+          <article class="card">
+            <h3>Работа с разными задачами</h3>
+            <p>От типового обслуживания до поиска сложной электрической неисправности, когда проблема плавающая и неочевидная.</p>
+          </article>
+        </div>
+
+        <div class="cta">
           <div>
-            <h2>Фото сервиса</h2>
-            <p>Сюда нужно положить реальные фотографии сервиса. Просто создай папку <b>images</b> и загрузи фото с указанными именами файлов.</p>
+            <h3>Нужна диагностика или помощь автоэлектрика?</h3>
+            <p>Позвоните, опишите проблему и уточните удобное время. Подскажем, с чего начать и что проверить в первую очередь.</p>
           </div>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-card one large reveal">
-            <div class="gallery-content">
-              <strong>Главное фото</strong>
-              <div class="gallery-note">Файл: <b>images/gallery-1.jpg</b></div>
-            </div>
-          </article>
-          <article class="gallery-card two reveal">
-            <div class="gallery-content">
-              <strong>Подъемник</strong>
-              <div class="gallery-note">Файл: <b>images/gallery-2.jpg</b></div>
-            </div>
-          </article>
-          <article class="gallery-card three reveal">
-            <div class="gallery-content">
-              <strong>Диагностика</strong>
-              <div class="gallery-note">Файл: <b>images/gallery-3.jpg</b></div>
-            </div>
-          </article>
-          <article class="gallery-card four reveal">
-            <div class="gallery-content">
-              <strong>Автоэлектрика / ремонт</strong>
-              <div class="gallery-note">Файл: <b>images/gallery-4.jpg</b></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container trust-grid">
-        <article class="trust-panel reveal">
-          <h3>Почему клиенту удобно обратиться сюда</h3>
-          <div class="check-list">
-            <div class="check-item"><div class="check">✓</div><div>Понятное объяснение без лишней воды и непонятных формулировок.</div></div>
-            <div class="check-item"><div class="check">✓</div><div>Сначала причина неисправности, потом решение по ремонту.</div></div>
-            <div class="check-item"><div class="check">✓</div><div>Можно сразу проверить машину снизу и понять состояние ходовой.</div></div>
-            <div class="check-item"><div class="check">✓</div><div>Удобно для диагностики, осмотра перед покупкой и регулярного обслуживания.</div></div>
-          </div>
-        </article>
-
-        <article class="review-panel reveal">
-          <h3>Отзывы</h3>
-          <div class="review-list">
-            <div class="review-card">
-              <p class="review-text">«Быстро нашли причину неисправности, объяснили простыми словами и без лишних навязанных работ.»</p>
-              <div class="review-author">— отзыв клиента</div>
-            </div>
-            <div class="review-card">
-              <p class="review-text">«Проверили машину перед покупкой, показали, что реально требует вложений. Это помогло избежать лишних расходов.»</p>
-              <div class="review-author">— отзыв клиента</div>
-            </div>
-            <div class="review-card">
-              <p class="review-text">«Удобно, что можно и ошибки прочитать, и сразу посмотреть машину на подъемнике в одном месте.»</p>
-              <div class="review-author">— отзыв клиента</div>
-            </div>
-          </div>
-          <div class="note">Позже сюда можно вставить реальные отзывы с именами или скриншотами.</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Как проходит работа</h2>
-            <p>Нормальный коммерческий блок, который делает процесс понятным и снижает лишние вопросы от клиента.</p>
-          </div>
-        </div>
-
-        <div class="process">
-          <article class="step reveal">
-            <div class="step-number">1</div>
-            <h3>Звонок или сообщение</h3>
-            <p>Клиент кратко описывает проблему, симптомы или задачу по автомобилю.</p>
-          </article>
-
-          <article class="step reveal">
-            <div class="step-number">2</div>
-            <h3>Осмотр и диагностика</h3>
-            <p>Проводится проверка, чтение ошибок, осмотр нужных узлов и диагностика снизу при необходимости.</p>
-          </article>
-
-          <article class="step reveal">
-            <div class="step-number">3</div>
-            <h3>Ремонт или рекомендации</h3>
-            <p>После проверки становится понятно, что делать срочно, а что можно отложить на потом.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="cta reveal">
-          <div>
-            <h3>Нужно проверить автомобиль или найти неисправность?</h3>
-            <p>Позвони и опиши проблему. По телефону можно быстро понять, с чего лучше начать: диагностика, автоэлектрик, подъемник или осмотр перед покупкой.</p>
-          </div>
-          <a class="btn btn-primary" href="tel:+79529945394">Позвонить</a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Частые вопросы</h2>
-            <p>Полезный блок для сайта. Помогает снять типовые вопросы клиента ещё до звонка.</p>
-          </div>
-        </div>
-
-        <div class="faq-grid">
-          <article class="faq-item reveal">
-            <h3>Нужно ли записываться заранее?</h3>
-            <p>Лучше позвонить заранее, чтобы уточнить удобное время и характер неисправности.</p>
-          </article>
-          <article class="faq-item reveal">
-            <h3>Можно приехать только на диагностику?</h3>
-            <p>Да. Можно начать с проверки, чтобы понять объем работ и приоритеты по ремонту.</p>
-          </article>
-          <article class="faq-item reveal">
-            <h3>Сразу скажете стоимость?</h3>
-            <p>По простым работам обычно можно сориентировать быстро. По сложным неисправностям точнее после осмотра.</p>
-          </article>
-          <article class="faq-item reveal">
-            <h3>Можно проверить машину перед покупкой?</h3>
-            <p>Да. Это отдельная услуга: диагностика, осмотр на подъемнике и оценка состояния автомобиля.</p>
-          </article>
+          <a class="btn btn-primary" href="tel:+79529945394">Позвонить сейчас</a>
         </div>
       </div>
     </section>
 
     <section id="contacts">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Контакты</h2>
-            <p>Финальный блок для связи. Сюда позже можно добавить точный адрес, режим работы и мессенджеры.</p>
+        <h2 class="section-title">Контакты</h2>
+        <p class="section-subtitle">
+          Для записи лучше сразу позвонить и кратко описать неисправность автомобиля.
+        </p>
+
+        <div class="contact-grid">
+          <div class="card contact-box">
+            <div class="contact-item">
+              <strong>Телефон</strong>
+              <a href="tel:+79529945394">+7 952 994-53-94</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Адрес</strong>
+              <span>п. Угра, ул. Ленина</span>
+            </div>
+
+            <div class="contact-item">
+              <strong>Формат работы</strong>
+              <span>По предварительной договорённости и записи.</span>
+            </div>
           </div>
-        </div>
 
-        <div class="contacts">
-          <article class="contact-box reveal">
-            <h3>Связаться</h3>
-            <div class="contact-list">
-              <div class="contact-item">
-                <div class="label">Телефон</div>
-                <div class="value"><a href="tel:+79529945394">+7 952 994-53-94</a></div>
-              </div>
-              <div class="contact-item">
-                <div class="label">Адрес</div>
-                <div class="value">п. Угра, ул. Ленина</div>
-              </div>
-              <div class="contact-item">
-                <div class="label">Направление</div>
-                <div class="value">Автосервис • автоэлектрик • диагностика • подъемник</div>
-              </div>
+          <div class="card">
+            <h3>Что сказать при звонке</h3>
+            <div class="list">
+              <div>Марка и модель автомобиля</div>
+              <div>Какая неисправность или симптом</div>
+              <div>Когда проявляется проблема</div>
+              <div>Нужна диагностика или конкретная работа</div>
             </div>
-            <div class="contact-actions">
-              <a class="btn btn-primary" href="tel:+79529945394">Позвонить</a>
-              <a class="btn btn-secondary" href="https://yandex.ru/maps/?text=%D0%BF.%20%D0%A3%D0%B3%D1%80%D0%B0%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0" target="_blank" rel="noopener">Открыть маршрут</a>
-            </div>
-          </article>
-
-          <article class="contact-box reveal">
-            <h3>Что осталось заменить под себя</h3>
-            <ul>
-              <li>Подставить реальные фото в папку <b>images</b></li>
-              <li>Изменить стартовые цены на свои фактические</li>
-              <li>Добавить номер дома и режим работы</li>
-              <li>При желании вставить WhatsApp и Telegram</li>
-              <li>Позже можно поставить реальные отзывы клиентов</li>
-            </ul>
-            <div class="note">После замены фото и цен это уже полноценная боевая страница для публикации.</div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-box">
-      <div>© <span id="year"></span> Автосервис в п. Угра</div>
-      <div>Автоэлектрик • Диагностика • Подъемник • Обслуживание</div>
+  <footer>
+    <div class="container">
+      © 2026 Автосервис в п. Угра. Автоэлектрик, диагностика, обслуживание автомобилей.
     </div>
   </footer>
 
-  <a class="floating-call" href="tel:+79529945394">Позвонить</a>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  </script>
 </body>
 </html>
